@@ -23,7 +23,10 @@ export const App: FC = () => {
     <div className="flex h-full w-full flex-col p-4 overflow-y-auto overflow-x-hidden">
       <div className="grid grid-cols-[repeat(auto-fill,18rem)] justify-between gap-4 w-full">
         {shaders.map((shader, i) => (
-          <Card key={i} className="w-fit h-fit">
+          <Card
+            key={i}
+            className="flex flex-col w-[calc(100vw-3rem)] sm:w-fit h-fit items-center justify-center"
+          >
             <CardHeader>
               <CardTitle>Shader {i + 1}</CardTitle>
             </CardHeader>
