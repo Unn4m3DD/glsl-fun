@@ -77,6 +77,8 @@ export function CardPage() {
       flexWrap={"wrap"}
       pixelSize={0.01}
       overflow={"scroll"}
+      alignItems={"center"}
+      justifyContent={"center"}
     >
       <Defaults>
         {shaders.map((shader, index) => (
