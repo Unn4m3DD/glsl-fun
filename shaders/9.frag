@@ -6,7 +6,7 @@ float band(float pos, float start, float finish) {
 }
 
 void main() {
-  vec2 uv_mouse = (u_mouse.xy * 2.0 - u_resolution.xy) / u_resolution.y;
+  vec2 uv_mouse = clip_space(u_mouse.xy);
   vec2 uv0 = clip_space(gl_FragCoord.xy);
   
   float c = band(uv0.x - uv_mouse.x + sin(uv0.y * 9.0) / 10.0, 0.0, 0.03);

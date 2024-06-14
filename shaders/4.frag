@@ -53,7 +53,7 @@ float sirp4(in vec2 p) {
   result += sirp3(2.0 * (p - rot2d(vec2(0.0, r / 2.0), - 2.0 * PI / 3.0)));
   return result;
 }
-
+uniform vec2 u_offset;
 void main()
 {
   // vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / u_resolution.y; // * pow(0.2, u_time);
@@ -61,7 +61,7 @@ void main()
   // float result = sirp4(uv);
   
   float time = sin((u_time + 100.0) / 9000.0) * 9999.0;
-  vec2 uv0 = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / u_resolution.y;
+  vec2 uv0 = clip_space(gl_FragCoord.xy);
   vec2 uv = rot2d((uv0 * time / 100.0), u_time);
   float value = (length(uv)) / 30.0 * sin(sirp4(rot2d(uv * sin(u_time), 0.0)));
   vec3 c = palette(value);

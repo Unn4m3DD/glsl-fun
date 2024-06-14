@@ -43,7 +43,7 @@ vec3 blue = vec3(0.0 / 255.0, 105.0 / 255.0, 224.0 / 255.0);
 
 void main()
 {
-  vec2 uv = (gl_FragCoord.xy) / u_resolution.y;
+  vec2 uv = clip_space(gl_FragCoord.xy);
   uv -= 0.5;
   uv = rot2d(uv, sin(u_time) / 2.0);
   uv += 0.5;
@@ -102,5 +102,4 @@ void main()
   );
   
   gl_FragColor = vec4(vec3(c), 1.0);
-  // fragColor = vec4(col,1.0);
 }

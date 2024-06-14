@@ -3,7 +3,8 @@
 
 void main()
 {
-  vec2 uv = gl_FragCoord.xy - u_resolution / 2.0 - u_time * PI * PI * 10.0;
+  vec2 uv = clip_space(gl_FragCoord.xy);
+  uv = uv * u_resolution.y / 2.0 - u_time * PI * PI * 10.0;
   float scan_lines = sin((uv.y + u_time * 100.0) / 10.0) / 2.0 + 0.5;
   scan_lines += sin((uv.x + u_time * 100.0) / 10.0) / 2.0;
   scan_lines = smoothstep(0.5 - pow(2.0, cos(u_time)), 0.5 + sin(u_time), scan_lines);

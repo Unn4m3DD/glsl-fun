@@ -28,7 +28,7 @@ float opSmoothUnion(float d1, float d2, float k) {
 }
 float scene(vec3 position) {
   vec3 fill_box_position = position - vec3(0, 0, 0.0);
-  float fill_box = sdBox(fill_box_position , vec3(.992));
+  float fill_box = sdBox(fill_box_position , vec3(0.992));
   float hole = 1.0;
   const float max_iter_count = 5.0;
   for(float j = 0.0; j < max_iter_count; j ++ ) {
@@ -53,7 +53,7 @@ float scene(vec3 position) {
 vec3 origin = vec3(0.0, 0.0, - 10.0);
 
 void main() {
-  vec3 uv = vec3(clip_space(gl_FragCoord.xy).xy*1.4, 0.0);
+  vec3 uv = vec3(clip_space(gl_FragCoord.xy).xy * 1.4, 0.0);
   vec2 cs_mouse = clip_space(u_mouse.xy);
   origin.xz = rot2d(origin.xz, - cs_mouse.x * PI);
   uv.xz = rot2d(uv.xz, - cs_mouse.x * PI);

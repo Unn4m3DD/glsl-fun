@@ -53,7 +53,7 @@ float scene(vec3 position) {
 vec3 origin = vec3(0., 0., - 3.0);
 
 void main() {
-  vec3 uv = vec3(clip_space(gl_FragCoord.xy).xy, 0.0);
+  vec3 uv = vec3(clip_space(gl_FragCoord.xy), 0.0);
   vec2 cs_mouse = clip_space(u_mouse.xy);
   origin.xz = rot2d(origin.xz, -u_time);
   uv.xz = rot2d(uv.xz, -u_time);

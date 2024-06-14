@@ -12,8 +12,10 @@ import shader11 from "../shaders/11.frag";
 import shader12 from "../shaders/12.frag";
 import shader13 from "../shaders/13.frag";
 import shader14 from "../shaders/14.frag";
+import shaderTest from "../shaders/test.frag";
 
 export const shaders = [
+  shaderTest,
   shader1,
   shader2,
   shader3,
@@ -28,4 +30,8 @@ export const shaders = [
   shader12,
   shader13,
   shader14,
-].map(e => e.replace(/#extension GL_ARB_shading_language_include : enable/g, ""));
+]
+  .map((e) =>
+    e.replace(/#extension GL_ARB_shading_language_include : enable/g, "")
+  )
+  .map((e) => e.replace(/clip_space\(gl_FragCoord.xy\)/g, "vUv"));

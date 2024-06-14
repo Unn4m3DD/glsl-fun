@@ -3,9 +3,8 @@
 
 void main()
 {
-  vec2 uv = (gl_FragCoord.xy) / u_resolution.y;
+  vec2 uv = clip_space(gl_FragCoord.xy);
   uv -= 0.5;
-  // uv = rot2d(uv, sin(u_time) / 2.0);
   uv += 0.5;
   float x_par = float(int(uv.x * 8.0));
   float y_par = float(int(uv.y * 8.0));
@@ -24,5 +23,4 @@ void main()
   
   vec3 c = vec3(uv.x, 0.0, uv.x);
   gl_FragColor = vec4(vec3(c), 1.0);
-  // fragColor = vec4(col,1.0);
 }

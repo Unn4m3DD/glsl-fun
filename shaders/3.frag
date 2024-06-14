@@ -56,10 +56,8 @@ float sirp4(in vec2 p) {
 
 void main()
 {
-  vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / u_resolution.y; // * pow(0.2, u_time);
+  vec2 uv = clip_space(gl_FragCoord.xy);
   uv = rot2d(uv, u_time * 0.8);
   float result = sirp4(uv);
-  // float result = triangleFrame(uv, initial_size);
   gl_FragColor = vec4(palette(u_time) * result, 1.0);
-  // fragColor = vec4(col,1.0);
 }
