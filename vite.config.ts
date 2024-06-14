@@ -8,6 +8,7 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  base: "glsl-fun",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
